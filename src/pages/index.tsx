@@ -1,6 +1,6 @@
 import React from 'react';
 import 'normalize.css';
-import 'antd/dist/antd.css';
+import './index.scss';
 
 const IndexPage: React.FC = () => <></>;
 
