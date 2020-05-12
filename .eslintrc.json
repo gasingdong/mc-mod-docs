@@ -1,5 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
+  "plugins": ["jam3"],
   "extends": [
     "airbnb-typescript",
     "plugin:react/recommended",
@@ -33,7 +34,14 @@
   },
   "rules": {
     // disable the rule for all files
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/no-danger": "off",
+    "jam3/no-sanitizer-with-danger": [
+      2,
+      {
+        "wrapperName": ["sanitizer"]
+      }
+    ]
   },
   "overrides": [
     {
