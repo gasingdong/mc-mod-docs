@@ -1,5 +1,5 @@
 {
-  "parser":  "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb-typescript",
     "plugin:react/recommended",
@@ -9,14 +9,14 @@
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
-  	"project": "tsconfig.json",
+    "project": "tsconfig.json",
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "env": { 
+  "env": {
     "es6": true
   },
   "globals": {
@@ -27,8 +27,21 @@
     "localStorage": "readonly"
   },
   "settings": {
-  "react": {
-    "version": "detect"
+    "react": {
+      "version": "detect"
     }
-  }
+  },
+  "rules": {
+    // disable the rule for all files
+    "@typescript-eslint/explicit-function-return-type": "off"
+  },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": ["error"]
+      }
+    }
+  ]
 }
