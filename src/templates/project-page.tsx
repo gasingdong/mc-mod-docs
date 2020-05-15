@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Img, { GatsbyImageProps } from 'gatsby-image';
 import sanitizer from '../utils/sanitizer';
 
 interface ProjectProps {
@@ -14,35 +15,50 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
     author,
     firstVersion,
     latestVersion,
-    icon,
     project,
     source,
     issues,
   } = page.frontmatter;
+  const icon = page.frontmatter.icon.childImageSharp.fluid;
   return (
-    <div>
-      <h1>{page.frontmatter.title}</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th colSpan={2}>{page.frontmatter.title}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Author</th>
-            <td>{author}</td>
-          </tr>
-          <tr>
-            <th>First version</th>
-            <td>{firstVersion}</td>
-          </tr>
-          <tr>
-            <th>Latest version</th>
-            <td>{latestVersion}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="container">
+      <div className="card is-pulled-right">
+        <header className="card-header">
+          <h1 className="card-header-title is-centered">{title}</h1>
+        </header>
+        <div className="card-image">
+          <Img fluid={icon} />
+        </div>
+        <div className="card-content">
+          <table className="table is-fullwidth">
+            <tbody>
+              <tr>
+                <th>Author</th>
+                <td>{author}</td>
+              </tr>
+              <tr>
+                <th>First version</th>
+                <td>{firstVersion}</td>
+              </tr>
+              <tr>
+                <th>Latest version</th>
+                <td>{latestVersion}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer className="card-footer">
+          <p className="card-footer-item">
+            <a href={project}>Project</a>
+          </p>
+          <p className="card-footer-item">
+            <a href={source}>Source</a>
+          </p>
+          <p className="card-footer-item">
+            <a href={issues}>Issues</a>
+          </p>
+        </footer>
+      </div>
       <div dangerouslySetInnerHTML={{ __html: sanitizer(page.html) }} />
     </div>
   );
@@ -56,7 +72,9 @@ interface PageQueryData {
       author: string;
       firstVersion: string;
       latestVersion: string;
-      icon: string;
+      icon: {
+        childImageSharp: GatsbyImageProps;
+      };
       project: string;
       source: string;
       issues: string;
@@ -75,7 +93,13 @@ export const query = graphql`
         author
         firstVersion
         latestVersion
-        icon
+        icon {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         project
         source
         issues

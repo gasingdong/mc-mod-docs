@@ -1,9 +1,9 @@
 ---
 title: 'Comforts'
 author: 'C4'
-firstVersion: "2.0"
-latestVersion: "2.0.0.2"
-icon: 'comforts'
+firstVersion: '2.0'
+latestVersion: '2.0.0.2'
+icon: ../../../images/icons/comforts.png
 project: 'https://www.curseforge.com/minecraft/mc-mods/comforts'
 source: 'https://github.com/TheIllusiveC4/Comforts'
 issues: 'https://github.com/TheIllusiveC4/Comforts/issues'
