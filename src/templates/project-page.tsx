@@ -22,14 +22,14 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
   const icon = page.frontmatter.icon.childImageSharp.fluid;
   return (
     <div className="container">
-      <div className="card is-pulled-right">
+      <div className="infobox card is-pulled-right">
         <header className="card-header">
           <h1 className="card-header-title is-centered">{title}</h1>
         </header>
-        <div className="card-image">
-          <Img fluid={icon} />
-        </div>
-        <div className="card-content">
+        <div className="card-content is-flex">
+          <div className="card-image">
+            <Img fluid={icon} />
+          </div>
           <table className="table is-fullwidth">
             <tbody>
               <tr>
@@ -59,7 +59,10 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
           </p>
         </footer>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: sanitizer(page.html) }} />
+      <div
+        className="markdown"
+        dangerouslySetInnerHTML={{ __html: sanitizer(page.html) }}
+      />
     </div>
   );
 };

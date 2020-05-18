@@ -2,5 +2,27 @@
 @import '~bulma/bulma.sass';
 
 .card-image {
-  padding: 20px 10%;
+  width: 100px;
+}
+
+.card-content {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.infobox {
+  margin: 10px;
+}
+
+.markdown {
+  h1,
+  h2 {
+    padding: 1rem 0;
+    border-bottom: 1px solid lightgray;
+    overflow: hidden;
+  }
+  h2 {
+    @extend .title;
+    @extend .is-3;
+  }
 }
