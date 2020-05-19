@@ -22,6 +22,7 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
   const icon = page.frontmatter.icon.childImageSharp.fluid;
   return (
     <div className="container">
+      <div className="project-title title">{title}</div>
       <div className="infobox card is-pulled-right">
         <header className="card-header">
           <h1 className="card-header-title is-centered">{title}</h1>
