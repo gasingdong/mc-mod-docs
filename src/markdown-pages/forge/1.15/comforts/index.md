@@ -1,5 +1,6 @@
 ---
 title: 'Comforts (1.15 Forge)'
+slug: 'forge/1.15/comforts'
 layout: 'project'
 author: 'C4'
 firstVersion: '2.0'
@@ -19,6 +20,6 @@ Comforts is a mod that adds sleeping bags and hammocks to Minecraft. These items
 | Auto Use              | autoUse             | true    | Set to true to automatically use sleeping bags when placed                                                                                     |
 | Night Hammocks        | nightHammocks       | false   | Set to true to enable sleeping in hammocks at night                                                                                            |
 | Sleeping Bag Breakage | sleepingBagBreakage | 0.0     | The chance that a sleeping bag will break upon usage                                                                                           |
-| Sleeping Bag Debuffs  | sleepingBagDebuffs  | []      | List of debuffs to apply to players after using the sleeping bag<br>Format: [effect] [duration(secs)] [power]                                  |
+| Sleeping Bag Debuffs  | sleepingBagDebuffs  | []      | List of debuffs to apply to players after using the sleeping bag<br>Format: [effect][duration(secs)] [power]                                   |
 | Sleepy Factor         | sleepyFactor        | 2.0     | If Well-Rested is true, this value is used to determine how long you need before being able to sleep again (larger numbers = can sleep sooner) |
 | Well-Rested           | wellRested          | false   | Set to true to prevent sleeping depending on how long you previously slept                                                                     |

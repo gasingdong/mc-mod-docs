@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import sanitizer from '../utils/sanitizer';
+import navBox from '../content/navbox.yaml';
 
 interface ProjectProps {
   readonly data: PageQueryData;
@@ -12,6 +13,7 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
   const page = data.markdownRemark;
   const {
     title,
+    slug,
     author,
     firstVersion,
     latestVersion,
@@ -20,6 +22,7 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
     issues,
   } = page.frontmatter;
   const icon = page.frontmatter.icon.childImageSharp.fluid;
+  console.log(navBox);
   return (
     <div className="container">
       <div className="project-title title">{title}</div>
@@ -64,6 +67,15 @@ const ProjectPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
         className="markdown"
         dangerouslySetInnerHTML={{ __html: sanitizer(page.html) }}
       />
+      {Object.prototype.hasOwnProperty.call(navBox, slug) && (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>{navBox[slug].title}</th>
+            </tr>
+          </thead>
+        </table>
+      )}
     </div>
   );
 };
@@ -94,6 +106,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        slug
         author
         firstVersion
         latestVersion

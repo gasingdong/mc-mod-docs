@@ -1,0 +1,8 @@
+forge/1.15/comforts:
+  title: 'Comforts (1.15 Forge)'
+  sections:
+    - groups:
+        - elements:
+            - title: Sleeping Bag
+              url: sleeping-bag
+              icon: [1, 6]
